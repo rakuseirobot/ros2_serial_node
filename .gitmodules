@@ -1,0 +1,3 @@
+[submodule "SerialPort"]
+	path = SerialPort
+	url = https://github.com/rakuseirobot/SerialPort.git
