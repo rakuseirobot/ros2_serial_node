@@ -11,6 +11,10 @@ if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 14)
 endif()
 
+#generate msga files
+find_package(rosidl_default_generators REQUIRED)
+rosidl_generate_interfaces(${PROJECT_NAME} "msg/Serial.msg")
+
 set(CMAKE_CXX_FLAGS "-O2 -Wall -Wextra -Wpedantic")
 
 find_package(ament_cmake REQUIRED)
