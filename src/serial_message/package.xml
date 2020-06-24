@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>serial_interface</name>
+  <name>serial_message</name>
   <version>0.0.0</version>
   <description>Receive and transmit serial data.</description>
   <maintainer email="helloworldwithsoulas@gmail.com">soulas</maintainer>
