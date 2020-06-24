@@ -3,7 +3,7 @@
 <package format="3">
   <name>serial_message</name>
   <version>0.0.1</version>
-  <description>Receive and transmit serial data.</description>
+  <description>Custom message and service for serial_interface.</description>
   <maintainer email="helloworldwithsoulas@gmail.com">soulas</maintainer>
   <license>TODO: License declaration</license>
 
