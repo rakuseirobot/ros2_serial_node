@@ -13,6 +13,7 @@ private:
 
 Publisher::Publisher() : Node("serial1"){
     publisher_ = this->create_publisher<serial_message::msg::Serial>("serial1",10);
+    this->declare_parameter<std::string>("Port", "/dev/ttyUSB0");
 }
 
 void Publisher::publish(uint8_t num){
@@ -24,9 +25,11 @@ void Publisher::publish(uint8_t num){
 int main(int argc, char **argv){
     rclcpp::init(argc, argv);
     auto node = std::make_shared<Publisher>();
+    std::string param;
     while(rclcpp::ok()){
         node->publish(1);
-        RCLCPP_INFO(node->get_logger(), "published");
+        node->get_parameter("Port", param);
+        RCLCPP_INFO(node->get_logger(), param);
     }
     rclcpp::shutdown();
     return 0;
