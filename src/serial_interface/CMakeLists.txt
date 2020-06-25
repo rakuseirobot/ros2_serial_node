@@ -18,7 +18,9 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(serial_message REQUIRED)
 
-add_executable(pub src/serial_publisher.cpp)
+add_executable(pub src/serial_publisher.cpp include/SerialPort/SerialPort/Linux_Serial.cpp)
+target_include_directories(pub PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/SerialPort/SerialPort)
+
 ament_target_dependencies(pub rclcpp serial_message)
 
 install(TARGETS pub DESTINATION lib/${PROJECT_NAME})
