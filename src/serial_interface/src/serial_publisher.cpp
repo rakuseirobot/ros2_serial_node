@@ -39,7 +39,15 @@ void Publisher::publish(uint8_t num){
 }
 
 void Publisher::send_serial_data(const serial_message::msg::SerialArray::SharedPtr data){
-    RCLCPP_WARN(this->get_logger(), "data");
+    std::ostringstream ostr;
+    ostr << "Send data ";
+    ostr << "[ ";
+    for(int i = 0; i < static_cast<int>(data->data.size()); i++){
+        if(i != 0) ostr << ", ";
+        ostr << std::to_string(data->data[i]);
+    }
+    ostr << "]";
+    RCLCPP_WARN(this->get_logger(), ostr.str());
     
 }
 
@@ -68,10 +76,10 @@ int main(int argc, char **argv){
     while(rclcpp::ok()){
         serial_byte = serial.read1byte();
         node->publish(serial_byte);
-        RCLCPP_INFO(node->get_logger(), "published");
+        RCLCPP_DEBUG(node->get_logger(), "published");
         rclcpp::spin_some(node);
     }
     //serial.close();
-    rclcpp::shutdown();
+    //rclcpp::shutdown();
     exit(0);
 }
