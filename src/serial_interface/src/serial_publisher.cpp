@@ -48,7 +48,7 @@ void Publisher::send_serial_data(const serial_message::msg::SerialArray::SharedP
     }
     ostr << "]";
     RCLCPP_WARN(this->get_logger(), ostr.str());
-    
+    serial.write(data->data);
 }
 
 
